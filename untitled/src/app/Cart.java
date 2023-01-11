@@ -42,22 +42,23 @@ public class Cart { // 장바구니 역할을 하는 객체
                 );
             }
             if (product instanceof Side) {
+                if (((Side) product).getHotSauce() != 0){
+                    System.out.printf(
+                            "  %-8s %6d원 (핫소스 %d개)\n",
+                            product.getName(),
+                            product.getPrice(),
+                            ((Side) product).getHotSauce()
+                    );
+                } else if (((Side) product).getMustard() != 0) {
+                    System.out.printf(
+                            "  %-8s %6d원 (머스타드 %d개)\n",
+                            product.getName(),
+                            product.getPrice(),
+                            ((Side) product).getMustard()
+                    );
+                }
+            }
 
-                System.out.printf(
-                        "  %-8s %6d원 (핫소스 %d개)\n",
-                        product.getName(),
-                        product.getPrice(),
-                        ((Side) product).getHotSauce()
-                );
-            }
-            if (product instanceof Side) {
-                System.out.printf(
-                        "  %-8s %6d원 (머스타드 %d개)\n",
-                        product.getName(),
-                        product.getPrice(),
-                        ((Side) product).getMustard()
-                );
-            }
             if (product instanceof Drink) {
                 System.out.printf(
                         "  %-8s %6d원 (빨대 %s)\n",

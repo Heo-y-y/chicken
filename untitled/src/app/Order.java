@@ -19,8 +19,11 @@ public class Order {
 
         int finalPrice = totalPrice;
 
-        if (howToReceiveCondition.isSatisfied()) finalPrice = howToReceiveCondition.deliveryFree(finalPrice);
-        if (howToReceiveCondition.isSatisfied()) finalPrice = howToReceiveCondition.applyDiscount(finalPrice);
+        if (howToReceiveCondition.isSatisfied()){
+            finalPrice = howToReceiveCondition.deliveryFree(finalPrice);
+        } else {
+            finalPrice = howToReceiveCondition.applyDiscount(finalPrice);
+        }
 
         System.out.println("[📣] 주문이 완료되었습니다. ");
         System.out.println("[📣] 주문 내역은 다음과 같습니다. ");
