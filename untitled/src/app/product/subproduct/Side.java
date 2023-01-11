@@ -3,18 +3,35 @@ package app.product.subproduct;
 import app.product.Product;
 
 public class Side extends Product { // Product 상속 받음
-    private boolean sauce; // true면 핫 소스, false면 머스타드
+    private int hotSauce;
+    private int mustard;
 
-    public Side(int id, String name, int price, int kcal, boolean sauce) {
+
+    public Side(int id, String name, int price, int kcal, int hotSauce, int mustard) {
         super(id, name, price, kcal);
-        this.sauce = sauce;
+        this.hotSauce = hotSauce;
+        this.mustard = mustard;
     }
 
-    public boolean sauce() {
-        return sauce;
+    public Side(Side side) {
+        super(side.getName(), side.getPrice(), side.getKcal());
+        this.hotSauce = side.getHotSauce();
+        this.mustard = side.getMustard();
     }
 
-    public void setSauce(boolean sauce) {
-        this.sauce = sauce;
+    public void setHotSauce(int hotSauce) {
+        this.hotSauce = hotSauce;
+    }
+
+    public void setMustard(int mustard) {
+        this.mustard = mustard;
+    }
+
+    public int getHotSauce() {
+        return hotSauce;
+    }
+
+    public int getMustard() {
+        return mustard;
     }
 }
